@@ -10,7 +10,19 @@ namespace Project.Web.Models
         public string UserName { get; set; }
         public string Project { get; set; }
         public DateTime StartDate { get; set; }
-        public string EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public string Notes { get; set; }
+
+        public double difference(DateTime? endDate, DateTime startDate)
+        {
+            if(endDate != null)
+            {
+                return endDate.Value.Subtract(startDate).TotalHours;
+            }
+            else
+            {
+                return 0.0;
+            }
+        }
     }
 }

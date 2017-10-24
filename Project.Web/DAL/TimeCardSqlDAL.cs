@@ -35,7 +35,14 @@ namespace Project.Web.DAL
                         r.UserName = Convert.ToString(reader["user_name"]);
                         r.Project = Convert.ToString(reader["project"]);
                         r.StartDate = Convert.ToDateTime(reader["start_datetime"]);
-                        r.EndDate = Convert.ToString(reader["end_datetime"]);
+                        if(reader["end_datetime"] == DBNull.Value)
+                        {
+                            r.EndDate = null;
+                        }
+                        else
+                        {
+                            r.EndDate = Convert.ToDateTime(reader["end_datetime"]);
+                        }
                         r.Notes = Convert.ToString(reader["notes"]);
 
                         output.Add(r);
