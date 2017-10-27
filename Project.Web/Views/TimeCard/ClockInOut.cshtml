@@ -11,12 +11,20 @@
     {
         <form action="@Url.Action("ClockIn", "TimeCard")" method="post">
             <div>
-                <label>Project Name: </label>
-                @Html.TextBoxFor(m => m.Project)
-                @Html.HiddenFor(m => m.Project)
+                <table>
+                    <tr>
+                        <td>  
+                            <label>Project Name: </label>
+                            @Html.TextBoxFor(m => m.Project)
+                            @Html.HiddenFor(m => m.Project)  
+                        </td>
+                        <td>
+                            <button>Clock-In</button>
+                            @Html.HiddenFor(m => m.Username)
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <button>Clock-In</button>
-            @Html.HiddenFor(m => m.Username)
         </form>
     }
     else
