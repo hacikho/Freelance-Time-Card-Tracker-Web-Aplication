@@ -11,7 +11,7 @@ namespace Project.Web.DAL
     public class TimeCardSqlDAL:ITimeCardDAL
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["TimeCardDB"].ConnectionString;
-        private string SQL_GetAllRecord = "Select * from timecard WHERE timecard.user_name = @username";
+        private string SQL_GetAllRecord = "Select * from timecard WHERE timecard.user_name = @username order by timecard.start_datetime desc";
         private string SQL_InsertTimeIn = "INSERT INTO timecard (user_name, start_datetime, project)VALUES(@username, @startdate, @project)";
         private string SQL_CheckClockOut = "Select * from timecard WHERE timecard.user_name = @username and timecard.end_datetime is null";
         private string SQL_ClockOut = "UPDATE timecard SET timecard.end_datetime=@enddate, timecard.notes = @notes WHERE timecard.user_name =@username AND timecard.end_datetime IS NULL";

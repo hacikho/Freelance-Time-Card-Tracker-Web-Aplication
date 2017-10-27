@@ -29,4 +29,9 @@
         </form>
     }
 
+    <form action="@Url.Action("Report", "TimeCard")" method="post">
+        <button>Search my Clock-In-Out Records</button>
+        @Html.HiddenFor(m => m.Username)
+    </form>
+
 </div>
