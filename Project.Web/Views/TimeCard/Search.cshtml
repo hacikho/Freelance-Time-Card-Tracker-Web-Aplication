@@ -1,0 +1,20 @@
+﻿@using Project.Web.Models;
+@model TimeCardModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Search</h2>
+<form action="@Url.Action("GetUserName", "TimeCard")" method="get">
+
+    <div>
+        <label>Email Address</label>
+        @Html.TextBoxFor(m => m.UserName)
+        
+    </div>
+
+    <div>
+        <button>Search</button>
+        @Html.HiddenFor(m => m.UserName)
+    </div>
+</form>

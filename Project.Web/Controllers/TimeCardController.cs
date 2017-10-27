@@ -62,5 +62,21 @@ namespace Project.Web.Controllers
             List<TimeCardModel> models = dal.GetAllRecords(Session["username"].ToString());
             return View("Report", models);
         }
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            TimeCardModel m = new TimeCardModel();
+            return View("Search", m);
+        }
+
+        [HttpGet]
+        public ActionResult GetUserName(string username)
+        {
+            Session["username"] = username;
+            return RedirectToAction("report");
+        }
+
+       
     }
 }
